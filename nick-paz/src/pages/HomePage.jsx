@@ -7,7 +7,7 @@ const HomePage = () => {
   const containerRef = useRef(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
-
+  
   useEffect(() => {
     if (containerRef.current) {
       setDimensions({
@@ -54,8 +54,10 @@ const HomePage = () => {
       <div 
         className="absolute pointer-events-none w-96 h-96 rounded-full"
         style={{
+          top: 0,
+          left: 0,
           background: `radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(0,0,0,0) 70%)`,
-          transform: `translate(${mousePosition.x - 192}px, ${mousePosition.y - 192}px)`,
+          transform: `translate(${mousePosition.x - 192}px, ${mousePosition.y - 192}px)`, // center on cursor
           transition: 'transform 0.05s ease-out',
         }}
       ></div>
