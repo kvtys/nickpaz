@@ -56,7 +56,7 @@ const HomePage = () => {
         style={{
           top: 0,
           left: 0,
-          background: `radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(0,0,0,0) 70%)`,
+          background: `radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(0,0,0,0) 80%)`,
           transform: `translate(${mousePosition.x - 192}px, ${mousePosition.y - 192}px)`, // center on cursor
           transition: 'transform 0.05s ease-out',
         }}
