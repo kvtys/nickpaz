@@ -2,10 +2,19 @@ import React from "react";
 import timelineElements from "../assets/timelineElements"
 import schoolIcon from "../assets/school.svg"
 import workIcon from "../assets/work.svg"
+import { motion } from "framer-motion";
 
 export default function TimelinePageAttempt({ defaultColor }) {
     return(
       <div className="flex flex-col justify-center items-center bg-gray-900 text-white text-base pb-8 sm:text-lg">
+        <motion.h1 
+          className="text-4xl md:text-6xl mt-12 mb-8 text-center font-light tracking-widest"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+        >
+          TIMELINE
+        </motion.h1>
         <div className="mt-[5%] w-full max-w-5xl px-4">
         {timelineElements.map((element) => {
                   const colors = [
@@ -52,7 +61,7 @@ export default function TimelinePageAttempt({ defaultColor }) {
                           key={index}
                           className="bg-gray-900 rounded-xl px-2 py-1 text-sm m-1 inline-flex items-center"
                         >
-                          <img src={images} alt={`images-${index}`} className="h-30 w-30 object-contain" />
+                          <img src={images} alt={`images-${index}`} className="duration-300 ease-in hover:scale-200 h-30 w-30 object-contain" />
                         </span>
                       );
                     })}
