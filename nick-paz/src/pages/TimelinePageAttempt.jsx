@@ -6,17 +6,16 @@ import workIcon from "../assets/work.svg"
 export default function TimelinePageAttempt({ defaultColor }) {
     return(
       <div className="flex flex-col justify-center items-center bg-gray-900 text-white text-base pb-8 sm:text-lg">
-        <div className="mt-[5%]">
+        <div className="mt-[5%] w-full max-w-5xl px-4">
         {timelineElements.map((element) => {
-            const colors = [
-              "bg-red-500",
-              "bg-blue-500",
-              "bg-yellow-500",
-              "bg-purple-500",
-              "bg-orange-500",
-            ];
+                  const colors = [
+                    "bg-red-500",
+                    "bg-blue-500",
+                    "bg-yellow-500",
+                    "bg-purple-500",
+                    "bg-orange-500",
+                  ];
             const color = defaultColor ||`bg-${element.color}-500`
-
             return (
               <div key={element.id} className="flex m-4 relative">
                 <div
@@ -26,7 +25,7 @@ export default function TimelinePageAttempt({ defaultColor }) {
                   className={`${color} w-0.5 h-6 translate-x-80 translate-y-56 opacity-60 sm:hidden`}
                 ></div>
                 <div className="hidden items-start w-44 pt-0.5 relative sm:flex">
-                  <div className="w-4/5"></div>
+                  <div className="w-4/5 text-gray-500"></div>
                   <div
                     className={`${color} w-px h-full translate-x-5 translate-y-10 opacity-30`}
                   ></div>
@@ -39,13 +38,25 @@ export default function TimelinePageAttempt({ defaultColor }) {
                     className={`${color} h-px w-8 translate-y-5 opacity-30`}
                   ></div>
                 </div>
-                <div className="border border-gray-600 rounded-lg px-8 py-4 bg-gray-800 w-full text-center z-10 sm:w-96">
+                <div className="border border-gray-600 rounded-lg px-8 py-4 bg-gray-800 w-full text-center z-10 sm:w-full md:w-full lg:w-full">
                   <div className="text-xl font-medium">{element.title}</div>
                   <div className="text-gray-300 mb-6 sm:mb-8 sm:text-xs">
                     {element.date}
                     <span className="sm:hidden"></span>
                   </div>
                   <div className="mb-4 text-left">{element.description}</div>
+                  <div className="flex flex-wrap mb-6 justify-center">
+                    {element.images.map((images, index) => {
+                      return (
+                        <span
+                          key={index}
+                          className="bg-gray-900 rounded-xl px-2 py-1 text-sm m-1 inline-flex items-center"
+                        >
+                          <img src={images} alt={`images-${index}`} className="h-30 w-30 object-contain" />
+                        </span>
+                      );
+                    })}
+                  </div>
                   <img
                     src={element.icon === "school" ? schoolIcon : workIcon}
                     alt="icon"
@@ -56,7 +67,6 @@ export default function TimelinePageAttempt({ defaultColor }) {
             );
         })}
         </div>
-
       </div>  
     );
 }
