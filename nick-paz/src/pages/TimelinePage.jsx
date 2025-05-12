@@ -551,7 +551,7 @@ const TimelinePage = () => {
     {
       phase: 5,
       date: "2/20/25 - 2/22/25",
-      title: "Final Implementation",
+      title: "[Unnamed]",
       description: `This is my second portrayal of love through the song "I Think", by Tyler The Creator. In this (mostly) finalized drawing I want to show someone going numb and letting go. I also want to incorporate lighter colors in the background. This is my second portrayal of heartbreak through the song "I Think About You All the Time", by The Maine. In this drawing i want to depict someone who looks defeated and upset. I also want to use this idea of rain falling on the figure, or some kind of weather element impacting him negatively. In these sketches I want to use full figures, because I believe in both of these stages of love and heartbreak, there is the strongest sense of emotion. This second stage of love and heartbreak is intensity.  People can easily relate to figure, so I think its more powerful to use this here.`,
       image: s9,
       image2: s10,
@@ -560,7 +560,7 @@ const TimelinePage = () => {
     {
       phase: 6,
       date: "2/26/25 - 3/2/25",
-      title: "Final Implementation",
+      title: "[Unnamed]",
       description: `This is my continued version of the woman falling on a larger scale to understand the figure better. I decided to make the faceline visible too. On the right is a more advanced version of my earlier drawing of heartbreak. I decided to add more depth to the figure by not including an entire side profile view.`,
       image: s11,
       image2: s12,
@@ -569,7 +569,7 @@ const TimelinePage = () => {
     {
       phase: 7,
       date: "3/6/25 - 3/8/25",
-      title: "Final Implementation",
+      title: "[Unnamed]",
       description: `I wasn't completely sold on my other idea for heartbreak, so this is a new design I used. I like both of these designs, and am conflicted on where I should go from here. 
 I think it is important that i spent extra time sketching for this stage with figure, as it could prove to be the most challenging part of my project. Also, I decided to make a more chaotic background with the correlating figure being the girl falling. My idea behind this was to use the black of the record fade into the vibrant acrylic colors.`,
       image: s13,
@@ -579,7 +579,7 @@ I think it is important that i spent extra time sketching for this stage with fi
     {
       phase: 8,
       date: "3/8/25 - 3/13/25",
-      title: "Final Implementation",
+      title: "Unnamed",
       description: `I was originally interested in using a green color rather than a blue, but after looking at both i decided the blue tones looked more connected to the message of my piece. I also matched this set by utilizing the paint fading into the records color..`,
       image: s15,
       image2: s16,
@@ -588,7 +588,7 @@ I think it is important that i spent extra time sketching for this stage with fi
     {
       phase: 9,
       date: "3/16-3/19/25",
-      title: "Final Implementation",
+      title: "[Unnamed]",
       description: `This is the same idea as the previous one. My main difference was incorporating a more chaotic background and deciding to color in his hair.
 Im happy with how these figures came out. I will define the girls hair more in my finished drawing, while for the guy I'm going to touch up some areas in the background. On the right, this is my third portrayal of love through the song "Feel Good", by Gryffin. The song is about using substances to cope and using their significant other to help get them out of this situation, so I decided to portray that in my finished design of two people holding hands.`,
       image: s17,
@@ -598,7 +598,7 @@ Im happy with how these figures came out. I will define the girls hair more in m
     {
       phase: 10,
       date: "3/19/25 - 3/21/25",
-      title: "Final Implementation",
+      title: "[Unnamed]",
       description: `This is my third portrayal of heartbreak through the song "The Night We Met", by Lord Huron. I am going to be using these looser figures to give a more carefree look to them. The theme of this song is about regret, so i'm using these simplistic figures to give a sense of wonder to what happened.
 In these sketches i want to bring this lasting aspect of intensity from the last stage, but give more visual curiosity as to what is happening.`,
       image: s19,
@@ -608,7 +608,7 @@ In these sketches i want to bring this lasting aspect of intensity from the last
     {
       phase: 11,
       date: "3/21/25 - 3/23/25",
-      title: "Final Implementation",
+      title: "[Unnamed]",
       description: `Here I wanted to give an eerie vibe to the background. using reminiscent colors that are seen with nostalgia. I also decided to fill in the figures holding hands using these cooler colored on top of this chaotic background, drawing attention to the center of the hand.`,
       image: s21,
       image2: s22,
@@ -617,7 +617,7 @@ In these sketches i want to bring this lasting aspect of intensity from the last
     {
       phase: 12,
       date: "3/23/25 -3/26/25",
-      title: "Final Implementation",
+      title: "[Unnamed]",
       description: `I added these similar figures from the sketch and decided against filling in the figures, as it creates a sense of curiosity as to how empty looking it is now that this person is dealing with the loss of his partner. Both of these are nearly finished. I'm going to touch up the background and potentially work in different patterns in the arms of my take on love. While in heartbreak im going to work more mysterious elements involved. On the right is my fourth portrayal of love through the song "On Melancholy Hill", by Gorillaz. I went through a lot of sketches trying to figure out what I like the most. I landed on this sketch of a couple sharing a special moment, and i want to mirror what I worked on in the last vinyl. This song is important to showcase the simplicity of a relationship and how fragile it can be. `,
       image: s23,
       image2: s24,
@@ -626,7 +626,7 @@ In these sketches i want to bring this lasting aspect of intensity from the last
     {
       phase: 13,
       date: "3/29/25 - 3/31/25",
-      title: "Final Implementation",
+      title: "[Unnamed]",
       description: `This is my fourth portrayal of heartbreak through the song Motorcycle Drive By, by Third Eye Blind. In this song there are themes about letting go and realizing its ok to move on. This is a rougher sketch, that is hard to depict in graphite, but it shows a person walking out of a door with a wave nearly crashing over him.
 In these sketches i wanted to add figures in a more intense atmosphere. I want to create a cinematic value to them that creates visual interest. For the background here, I want to use warmer colors that have shades of violet giving a more welcoming and sensual feeling.`,
       image: s25,
@@ -636,7 +636,7 @@ In these sketches i wanted to add figures in a more intense atmosphere. I want t
     {
       phase: 14,
       date: "3/31/25 - 4/3/25",
-      title: "Final Implementation",
+      title: "[Unnamed]",
       description: `At this stage I am not entirely sure how i want to cast the wave in regards to color, but I am sure that the door that is currently covered in tape is going to be a light violet color that leads back into the first vinyl I painted. I added the figures and layered the background more. I made the male figure brighter, and the female figure darker to represent how they both feel about their relationship and what's to come. `,
       image: s27,
       image2: s28,
@@ -724,8 +724,7 @@ Both of these are near completion and am happy with how eye grabbing they are. I
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 0.5 }}
             >
-              A chronological journey through the development of our innovative project, 
-              from initial concept to final implementation.
+              A chronological journey through the development of acrylic paint on vinyl records that represent deep themes of love and heartbreak. 
             </motion.p>
           </motion.div>
           
