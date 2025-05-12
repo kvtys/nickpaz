@@ -16,11 +16,11 @@ const Navbar = () => {
         {/* Hamburger Button */}
         <button 
           onClick={toggleMenu} 
-          className="z-50 relative w-10 h-10 flex flex-col justify-center items-center focus:outline-none"
+          className="z-1000 relative w-10 h-10 pr-10 flex flex-col justify-center items-center focus:outline-none"
           aria-label="Toggle navigation menu"
         >
           <span 
-            className={`block w-6 h-0.5 bg-white transition-all duration-300 ease-out ${isOpen ? 'rotate-45 translate-y-1' : ''}`}
+            className={`block w-6 h-0.5 bg-white transition-all duration-300 ease-out ${isOpen ? 'rotate-45 translate-y-2' : ''}`}
           ></span>
           <span 
             className={`block w-6 h-0.5 bg-white mt-1 transition-all duration-300 ease-out ${isOpen ? 'opacity-0' : ''}`}

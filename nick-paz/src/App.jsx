@@ -17,7 +17,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/portfolio" element={<PortfolioPage />} />
-          <Route path="/timeline" element={<TimelinePageAttempt />} />
+          <Route path="/timeline" element={<TimelinePage />} />
           <Route path="/contact" element={<ContactPage />} />
         </Routes>
       </div>

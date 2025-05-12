@@ -2,6 +2,7 @@
 import { motion } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
 import React from 'react';
+import nick from '../assets/nickpaz.jpg';
 
 const ContactPage = () => {
   const containerRef = useRef(null);
@@ -24,14 +25,6 @@ const ContactPage = () => {
     };
   }, []);
 
-  // Social links
-  const socialLinks = [
-    { name: 'Instagram', icon: '📸', link: 'https://instagram.com/nickpaz' },
-    { name: 'LinkedIn', icon: '💼', link: 'https://linkedin.com/in/nickpaz' },
-    { name: 'Behance', icon: '🎨', link: 'https://behance.net/nickpaz' },
-    { name: 'Twitter', icon: '🐦', link: 'https://twitter.com/nickpaz' }
-  ];
-
   return (
     <div 
       ref={containerRef}
@@ -39,15 +32,15 @@ const ContactPage = () => {
     >
       {/* Subtle spotlight effect */}
       <div 
-        className="absolute pointer-events-none w-96 h-96 rounded-full opacity-30"
+        className="absolute pointer-events-none w-1000 h-1000 rounded-full opacity-30"
         style={{
           background: `radial-gradient(circle, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0) 70%)`,
-          transform: `translate(${mousePosition.x - 192}px, ${mousePosition.y - 192}px)`,
+          transform: `translate(${mousePosition.x - 2000}px, ${mousePosition.y - 2100}px)`,
           transition: 'transform 0.1s ease-out',
         }}
       ></div>
       
-      <div className="max-w-5xl mx-auto px-4">
+      <div className="max-w-5xl mx-auto px-4 justify-center items-center">
         <motion.h1 
           className="text-4xl md:text-6xl mb-16 text-center font-light tracking-widest"
           initial={{ opacity: 0, y: -20 }}
@@ -66,9 +59,9 @@ const ContactPage = () => {
             transition={{ duration: 1, delay: 0.3 }}
           >
             <div className="bg-gray-900 p-1.5 shadow-xl" style={{ boxShadow: '0 10px 30px rgba(0,0,0,0.5), 0 0 10px rgba(255,255,255,0.1) inset' }}>
-              <div className="p-4 bg-black">
+              <div className="p-12 bg-black">
                 <img 
-                  src="/api/placeholder/350/450" 
+                  src={nick} 
                   alt="Nick Paz" 
                   className="w-full h-full object-cover"
                   style={{ width: '300px', height: '400px' }}
@@ -84,17 +77,17 @@ const ContactPage = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, delay: 0.5 }}
           >
-            <div className="bg-gray-900 border border-gray-800 p-6 mb-8">
+            <div className="border border-gray-800 p-6 mb-8">
               <h2 className="text-xl font-light mb-2 tracking-wide">NICK PAZ</h2>
-              <p className="text-sm text-gray-400 italic mb-4">Contemporary Digital Artist</p>
+              <p className="text-sm text-gray-400 italic mb-4">Contemporary Artist</p>
               <p className="mb-4 text-sm leading-relaxed">
-                Born in 1990, Nick Paz is a multidisciplinary artist whose work explores the intersection of digital technology and traditional artistic practice. His work has been exhibited in galleries across North America and Europe.
+                Born in 2002, Nick Paz is a multidisciplinary artist whose work explores graphic and visual art, typically working in paint, collage, and charcoal. The variety of mediums assists in the wide scale of human experience.
               </p>
               <p className="mb-4 text-sm leading-relaxed">
-                Paz's distinctive style combines elements of minimalism with complex digital manipulations, creating pieces that challenge the viewer's perception of space and dimension.
+                Paz's distinctive style explores areas of emotional struggles, addiction, and environmental concerns. 
               </p>
               <p className="text-sm leading-relaxed">
-                Currently based in New York City, Paz continues to push the boundaries of digital art through experimental techniques and collaborative projects.
+                Currently based in Suffern NY, Paz continues to push the boundaries of art through experimental techniques and projects.
               </p>
             </div>
             
@@ -102,7 +95,7 @@ const ContactPage = () => {
             <div>
               <h3 className="text-lg font-light mb-4 tracking-wide">CONTACT INFORMATION</h3>
               
-              <div className="mb-6">
+              <div className="mb-6 flex flex-row space-x-2">
                 <p className="text-gray-300 mb-1">Email:</p>
                 <a 
                   href="mailto:contact@nickpaz.com" 
@@ -110,25 +103,6 @@ const ContactPage = () => {
                 >
                   contact@nickpaz.com
                 </a>
-              </div>
-              
-              <div>
-                <p className="text-gray-300 mb-3">Social:</p>
-                <div className="flex flex-wrap gap-4">
-                  {socialLinks.map((social, index) => (
-                    <motion.a
-                      key={index}
-                      href={social.link}
-                      className="flex items-center gap-2 bg-gray-900 px-4 py-2 hover:bg-gray-800 transition-colors"
-                      whileHover={{ y: -3 }}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <span>{social.icon}</span>
-                      <span>{social.name}</span>
-                    </motion.a>
-                  ))}
-                </div>
               </div>
             </div>
           </motion.div>
