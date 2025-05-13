@@ -2,9 +2,21 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import React from 'react';
+import p1 from '../assets/portfolio/p1.jpg';
+import p2 from '../assets/portfolio/p2.jpg';
+import p3 from '../assets/portfolio/p3.jpg';
+import p4 from '../assets/portfolio/p4.jpg';
+import p5 from '../assets/portfolio/p5.jpg';
+import p6 from '../assets/portfolio/p6.jpg';
+import p7 from '../assets/portfolio/p7.jpg';
+import p8 from '../assets/portfolio/p8.jpg';
+import p9 from '../assets/portfolio/p9.jpg';
+
 
 // Art piece component
 const ArtFrame = ({ image, title, description, index }) => {
+  const [dimensions, setDimensions] = useState({ width: 400, height: 500 });
+
   const [isHovered, setIsHovered] = useState(false);
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -30,47 +42,94 @@ const ArtFrame = ({ image, title, description, index }) => {
     [index % 2 === 0 ? 45 : -45, 0, index % 2 === 0 ? -15 : 15]
   );
 
-  return (
-    <motion.div
-      ref={ref}
-      style={{ x, opacity, rotateY }}
-      className="my-64 first:mt-32 last:mb-32 relative"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      <div 
-        className="art-frame relative bg-gray-900 p-1"
-        style={{ 
-          width: '400px',
-          height: '500px',
-          boxShadow: '0 10px 30px rgba(0,0,0,0.5), 0 0 10px rgba(255,255,255,0.1) inset'
-        }}
-      >
-        <div className="w-full h-full p-4 bg-black">
-          <img 
-            src={image} 
-            alt={title} 
-            className="w-full h-full object-cover"
-          />
-        </div>
-        
-        {/* Museum-style label */}
-        <div className="absolute -bottom-20 left-0 w-full">
-          <h3 className="text-lg font-medium">{title}</h3>
-          <p className="text-xs italic opacity-70">NICK PAZ</p>
-        </div>
-        
-        {/* Description overlay */}
-        <motion.div 
-          className="absolute inset-0 bg-black bg-opacity-80 p-6 flex items-center justify-center text-center"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: isHovered ? 1 : 0 }}
-          transition={{ duration: 0.3 }}
-        >
-          <p className="text-sm leading-relaxed">{description}</p>
-        </motion.div>
+  const ProgressBar = () => {
+    const { scrollYProgress } = useScroll();
+    
+    return (
+      <motion.div 
+        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 origin-left z-50"
+        style={{ scaleX: scrollYProgress }}
+      />
+    );
+  };
+
+  useEffect(() => {
+    if (!image) return;
+    
+    const img = new Image();
+    img.onload = () => {
+      // Set max dimensions while maintaining aspect ratio
+      const maxWidth = 600;
+      const maxHeight = 800;
+      
+      let width = img.width;
+      let height = img.height;
+      
+      // Scale down if necessary while preserving aspect ratio
+      if (width > maxWidth) {
+        height = (height * maxWidth) / width;
+        width = maxWidth;
+      }
+      
+      if (height > maxHeight) {
+        width = (width * maxHeight) / height;
+        height = maxHeight;
+      }
+      
+      // Ensure minimum dimensions
+      width = Math.max(width, 400);
+      height = Math.max(height, 500);
+      
+      setDimensions({ width, height });
+    };
+    
+    img.src = image;
+  }, [image]);
+
+    return (
+      <div>
+        <ProgressBar />
+          <motion.div
+            ref={ref}
+            style={{ x, opacity, rotateY }}
+            className="my-64 first:mt-32 last:mb-32 relative"
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+          >
+            <div
+              className="art-frame relative bg-gray-900 p-1"
+              style={{
+                width: `${dimensions.width}px`,
+                height: `${dimensions.height}px`,
+                boxShadow: '0 10px 30px rgba(0,0,0,0.5), 0 0 10px rgba(255,255,255,0.1) inset'
+              }}
+            >
+              <div className="w-full h-full p-4 bg-black">
+                <img
+                  src={image}
+                  alt={title}
+                  className="w-full h-full object-contain"
+                />
+              </div>
+            
+              {/* Museum-style label */}
+              <div className="absolute -bottom-20 left-0 w-full">
+                <h3 className="text-lg font-medium">{title}</h3>
+                <p className="text-xs italic opacity-70">NICK PAZ</p>
+              </div>
+            
+              {/* Description overlay */}
+              <motion.div
+                className="absolute inset-0 bg-black bg-opacity-80 p-6 flex items-center justify-center text-center"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: isHovered ? 1 : 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                <p className="text-sm leading-relaxed">{description}</p>
+              </motion.div>
+            </div>
+          </motion.div>
       </div>
-    </motion.div>
   );
 };
 
@@ -79,33 +138,57 @@ const PortfolioPage = () => {
   const artworks = [
     {
       id: 1,
-      image: "/api/placeholder/400/500",
-      title: "Echoes of Silence",
-      description: "An exploration of negative space and minimalist expression, drawing inspiration from the Japanese concept of 'Ma' - the meaningful pause."
+      image: p1,
+      title: "Unfulfilment",
+      description: "Punching the air n shii"
     },
     {
       id: 2,
-      image: "/api/placeholder/400/500",
-      title: "Fragments of Memory",
-      description: "A multimedia piece combining traditional acrylic techniques with digital manipulation, representing the fragmented nature of human memory."
+      image: p2,
+      title: "Hand Realism",
+      description: "Ow, my finger hurts"
     },
     {
       id: 3,
-      image: "/api/placeholder/400/500",
-      title: "Urban Decay Series #7",
-      description: "Part of an ongoing documentation of abandoned urban spaces, highlighting the beauty in deterioration and the passage of time."
+      image: p3,
+      title: "Pastel Screaming",
+      description: "I'm tweaking"
     },
     {
       id: 4,
-      image: "/api/placeholder/400/500",
-      title: "Liminal Boundaries",
-      description: "An abstract interpretation of transitional spaces, exploring the threshold between physical and metaphysical realms."
+      image: p4,
+      title: "Figure and environment",
+      description: "Showering"
     },
     {
       id: 5,
-      image: "/api/placeholder/400/500",
-      title: "Chromatic Reverie",
-      description: "An experiment in color theory and emotional response, using a controlled palette to evoke specific psychological states."
+      image: p5,
+      title: "Concern Painting",
+      description: "Something is up"
+    },
+    {
+      id: 6,
+      image: p6,
+      title: "Environmental Awareness",
+      description: "Turtles n shii bro"
+    },
+    {
+      id: 7,
+      image: p7,
+      title: "Painterly Self Portrait",
+      description: "Perfection"
+    },
+    {
+      id: 8,
+      image: p8,
+      title: "CD Redesigns",
+      description: "?????"
+    },
+    {
+      id: 9,
+      image: p9,
+      title: "Connecting Addictions",
+      description: "I LOVE ADDICTION"
     }
   ];
 

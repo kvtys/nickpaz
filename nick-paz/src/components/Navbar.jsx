@@ -57,7 +57,14 @@ const Navbar = () => {
             className="hover:text-gray-400 transition-colors tracking-widest"
             onClick={() => setIsOpen(false)}
           >
-            TIMELINE
+            CAPSTONE BLOG
+          </Link>
+          <Link 
+            to="/contemporarycritique" 
+            className="hover:text-gray-400 transition-colors tracking-widest"
+            onClick={() => setIsOpen(false)}
+          >
+            CONTEMPORARY CRITIQUE
           </Link>
           <Link 
             to="/contact" 
