@@ -8,6 +8,12 @@ on:
   push:
     branches: [ "main" ]
 
+# Set permissions needed for GitHub Pages deployment
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -33,3 +39,4 @@ jobs:
       with:
         folder: ./nick-paz/dist  # Path to the build output directory
         branch: gh-pages
+        # The action will automatically use the GITHUB_TOKEN
