@@ -16,7 +16,7 @@ import p9 from '../assets/portfolio/p9.jpg';
 // Art piece component
 const ArtFrame = ({ image, title, description, index }) => {
   const [dimensions, setDimensions] = useState({ width: 400, height: 500 });
-
+  const [isMobile, setIsMobile] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -24,10 +24,13 @@ const ArtFrame = ({ image, title, description, index }) => {
     offset: ["start end", "end start"]
   });
   
+  // Responsive animation values
   const x = useTransform(
     scrollYProgress, 
     [0, 0.5, 1], 
-    [index % 2 === 0 ? -200 : 200, 0, index % 2 === 0 ? 100 : -100]
+    isMobile 
+      ? [0, 0, 0]  // No horizontal movement on mobile
+      : [index % 2 === 0 ? -200 : 200, 0, index % 2 === 0 ? 100 : -100]
   );
   
   const opacity = useTransform(
@@ -39,7 +42,15 @@ const ArtFrame = ({ image, title, description, index }) => {
   const rotateY = useTransform(
     scrollYProgress,
     [0, 0.5, 1],
-    [index % 2 === 0 ? 45 : -45, 0, index % 2 === 0 ? -15 : 15]
+    isMobile
+      ? [0, 0, 0]  // No rotation on mobile
+      : [index % 2 === 0 ? 45 : -45, 0, index % 2 === 0 ? -15 : 15]
+  );
+
+  const scale = useTransform(
+    scrollYProgress,
+    [0, 0.2, 0.8, 1],
+    [0.8, 1, 1, 0.8]
   );
 
   const ProgressBar = () => {
@@ -53,14 +64,30 @@ const ArtFrame = ({ image, title, description, index }) => {
     );
   };
 
+  // Check for mobile viewport
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    // Initial check
+    checkMobile();
+    
+    // Add resize listener
+    window.addEventListener('resize', checkMobile);
+    
+    // Cleanup
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   useEffect(() => {
     if (!image) return;
     
     const img = new Image();
     img.onload = () => {
       // Set max dimensions while maintaining aspect ratio
-      const maxWidth = 600;
-      const maxHeight = 800;
+      const maxWidth = isMobile ? 320 : 600;
+      const maxHeight = isMobile ? 400 : 800;
       
       let width = img.width;
       let height = img.height;
@@ -77,59 +104,60 @@ const ArtFrame = ({ image, title, description, index }) => {
       }
       
       // Ensure minimum dimensions
-      width = Math.max(width, 400);
-      height = Math.max(height, 500);
+      width = Math.max(width, isMobile ? 280 : 400);
+      height = Math.max(height, isMobile ? 350 : 500);
       
       setDimensions({ width, height });
     };
     
     img.src = image;
-  }, [image]);
+  }, [image, isMobile]);
 
-    return (
-      <div>
-        <ProgressBar />
+  return (
+    <div>
+      <ProgressBar />
+      <motion.div
+        ref={ref}
+        style={{ x, opacity, rotateY, scale }}
+        className="my-32 md:my-64 first:mt-16 md:first:mt-32 last:mb-16 md:last:mb-32 relative"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        <div
+          className="art-frame relative bg-gray-900 p-1 mx-auto"
+          style={{
+            width: `${dimensions.width}px`,
+            height: `${dimensions.height}px`,
+            boxShadow: '0 10px 30px rgba(0,0,0,0.5), 0 0 10px rgba(255,255,255,0.1) inset'
+          }}
+        >
+          <div className="w-full h-full p-4 bg-black">
+            <img
+              src={image}
+              alt={title}
+              className="w-full h-full object-contain"
+            />
+          </div>
+        
+          {/* Museum-style label */}
+          <div className="absolute -bottom-20 left-0 w-full">
+            <h3 className="text-lg font-medium">{title}</h3>
+            <p className="text-xs italic opacity-70">NICK PAZ</p>
+          </div>
+        
+          {/* Description overlay - Use native touch events for mobile */}
           <motion.div
-            ref={ref}
-            style={{ x, opacity, rotateY }}
-            className="my-64 first:mt-32 last:mb-32 relative"
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
+            className="absolute inset-0 bg-black bg-opacity-80 p-6 flex items-center justify-center text-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: isHovered ? 1 : 0 }}
+            transition={{ duration: 0.3 }}
+            onClick={() => setIsHovered(!isHovered)} // Toggle on touch for mobile
           >
-            <div
-              className="art-frame relative bg-gray-900 p-1"
-              style={{
-                width: `${dimensions.width}px`,
-                height: `${dimensions.height}px`,
-                boxShadow: '0 10px 30px rgba(0,0,0,0.5), 0 0 10px rgba(255,255,255,0.1) inset'
-              }}
-            >
-              <div className="w-full h-full p-4 bg-black">
-                <img
-                  src={image}
-                  alt={title}
-                  className="w-full h-full object-contain"
-                />
-              </div>
-            
-              {/* Museum-style label */}
-              <div className="absolute -bottom-20 left-0 w-full">
-                <h3 className="text-lg font-medium">{title}</h3>
-                <p className="text-xs italic opacity-70">NICK PAZ</p>
-              </div>
-            
-              {/* Description overlay */}
-              <motion.div
-                className="absolute inset-0 bg-black bg-opacity-80 p-6 flex items-center justify-center text-center"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: isHovered ? 1 : 0 }}
-                transition={{ duration: 0.3 }}
-              >
-                <p className="text-sm leading-relaxed">{description}</p>
-              </motion.div>
-            </div>
+            <p className="text-sm leading-relaxed">{description}</p>
           </motion.div>
-      </div>
+        </div>
+      </motion.div>
+    </div>
   );
 };
 
@@ -196,7 +224,7 @@ const PortfolioPage = () => {
     <div className="min-h-screen bg-black pt-24 pb-32">
       <div className="max-w-7xl mx-auto px-4">
         <motion.h1 
-          className="text-4xl md:text-6xl mb-16 text-center font-light tracking-widest"
+          className="text-4xl md:text-6xl mb-8 md:mb-16 text-center font-light tracking-widest"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}

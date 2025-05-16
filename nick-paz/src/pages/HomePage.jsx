@@ -102,7 +102,7 @@ const EnhancedSpotlight = () => {
       />
       
       {/* Content area - automatically interacts with spotlight */}
-      <div className="z-10 flex flex-col items-center space-y-20">
+      <div className="z-10 flex flex-col items-center space-y-20 text-center">
         {/* Main heading with staggered animation */}
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
