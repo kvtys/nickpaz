@@ -1,4 +1,4 @@
-name: Node.js CI
+name: Deploy to GitHub Pages
 
 defaults:
   run:
@@ -7,25 +7,29 @@ defaults:
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [18.x, 20.x, 22.x]
     
     steps:
     - uses: actions/checkout@v4
     
-    - name: Use Node.js ${{ matrix.node-version }}
+    - name: Use Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: ${{ matrix.node-version }}
+        node-version: '18.x'
         cache: 'npm'
         cache-dependency-path: './nick-paz/package-lock.json'
     
-    - run: npm ci
-    - run: npm run build --if-present
+    - name: Install dependencies
+      run: npm ci
+      
+    - name: Build
+      run: npm run build
+    
+    - name: Deploy to GitHub Pages
+      uses: JamesIves/github-pages-deploy-action@v4
+      with:
+        folder: ./nick-paz/dist  # Path to the build output directory
+        branch: gh-pages
