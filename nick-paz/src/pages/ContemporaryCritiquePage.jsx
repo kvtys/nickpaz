@@ -749,7 +749,7 @@ const ContemporaryCritiquePage = () => {
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 0.5 }}
             >
-              Blog. 
+              critique of the contemporary
             </motion.p>
           </motion.div>
           

@@ -119,7 +119,7 @@ const ArtFrame = ({ image, title, description, index }) => {
       <motion.div
         ref={ref}
         style={{ x, opacity, rotateY, scale }}
-        className="my-32 md:my-64 first:mt-16 md:first:mt-32 last:mb-16 md:last:mb-32 relative"
+        className="my-32 md:my-16 first:mt-16 md:first:mt-32 last:mb-16 md:last:mb-32 relative"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >

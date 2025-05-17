@@ -49,7 +49,7 @@ const EnhancedSpotlight = () => {
   return (
     <div 
       ref={containerRef}
-      className="relative h-screen w-full flex flex-col justify-center items-center overflow-hidden bg-black"
+      className="relative h-screen w-full flex flex-col justify-center items-center overflow-hidden bg-black cursor-none"
       style={{
         // CSS variables for spotlight position
         '--mouse-x': '50%',

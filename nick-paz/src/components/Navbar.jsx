@@ -21,7 +21,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed w-full z-40 p-4">
+    <nav className="fixed w-full z-40 p-6">
       <div className="flex justify-end">
         {/* Hamburger Button */}
         <button
@@ -31,7 +31,7 @@ const Navbar = () => {
           aria-expanded={isOpen}
         >
           <span
-            className={`block w-6 h-0.5 bg-white transition-all duration-300 ease-out ${isOpen ? 'rotate-45 translate-y-1' : ''}`}
+            className={`block w-6 h-0.5 bg-white transition-all duration-300 ease-out ${isOpen ? 'rotate-45 translate-y-2' : ''}`}
           ></span>
           <span
             className={`block w-6 h-0.5 bg-white mt-1 transition-all duration-300 ease-out ${isOpen ? 'opacity-0' : ''}`}
