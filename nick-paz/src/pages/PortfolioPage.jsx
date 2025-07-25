@@ -100,8 +100,8 @@ const ArtFrame = ({ image, title, description, index }) => {
         
           {/* Museum-style label - improved positioning for mobile */}
           <div className="absolute -bottom-16 left-0 w-full px-2 text-center">
-            <h3 className="text-lg font-medium">{title}</h3>
-            <p className="text-xs italic opacity-70">NICK PAZ</p>
+            <h3 className="lg:text-3xl sm:text-lg font-medium">{title}</h3>
+            <p className="lg:text-lg sm:text-sm italic opacity-70">NICK PAZ</p>
           </div>
         
           {/* Description overlay - now toggles on tap/click for all devices */}
@@ -112,7 +112,7 @@ const ArtFrame = ({ image, title, description, index }) => {
             transition={{ duration: 0.3 }}
             onClick={() => setIsDescriptionVisible(!isDescriptionVisible)}
           >
-            <p className="text-sm leading-relaxed">{description}</p>
+            <p className="lg:text-3xl sm:text-lg leading-relaxed">{description}</p>
           </motion.div>
         </div>
       </motion.div>
