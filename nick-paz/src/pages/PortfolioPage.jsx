@@ -11,8 +11,7 @@ import p6 from '../assets/portfolio/p6.jpg';
 import p7 from '../assets/portfolio/p7.jpg';
 import p8 from '../assets/portfolio/p8.jpg';
 import p9 from '../assets/portfolio/p9.jpg';
-import p10 from '../assets/portfolio/p10.jpg';
-import p11 from '../assets/portfolio/p11.jpg';
+
 
 // Art piece component
 const ArtFrame = ({ image, title, description, index }) => {
@@ -182,68 +181,56 @@ const PortfolioPage = () => {
     {
       id: 1,
       image: p1,
-      title: "Addicted to Feeling",
-      description: "The complexity of love broken down into eight stages on vinyl records using acrylic paint"
+      title: "Unfulfilment",
+      description: "Punching the air n shii"
     },
     {
       id: 2,
       image: p2,
-      title: "Mixed Media Album Reworks",
-      description: "Acrylic paint on CD cases with a listening element"
+      title: "Hand Realism",
+      description: "Ow, my finger hurts"
     },
     {
       id: 3,
       image: p3,
-      title: "Fragile Depths",
-      description: "Oil painting addressing the dangers of deep sea mining to mass produce technology"
+      title: "Pastel Screaming",
+      description: "I'm tweaking"
     },
     {
       id: 4,
       image: p4,
-      title: "Crushed by Industry",
-      description: "A collage tackling societal priorities of consumerism over wild life"
+      title: "Figure and environment",
+      description: "Showering"
     },
     {
       id: 5,
       image: p5,
-      title: "Side Effects May Vary",
-      description: "Comparing similarities of social media and drugs through collage"
+      title: "Concern Painting",
+      description: "Something is up"
     },
     {
       id: 6,
       image: p6,
-      title: "Drowning in Noise",
-      description: "Pastel drawing portrait of overstimulation"
+      title: "Environmental Awareness",
+      description: "Turtles n shii bro"
     },
     {
       id: 7,
       image: p7,
-      title: "Having Fun! i guess.",
-      description: "Oil painting portrait about trying to fit in"
+      title: "Painterly Self Portrait",
+      description: "Perfection"
     },
     {
       id: 8,
       image: p8,
-      title: "what am i doing wrong.",
-      description: "Charcoal drawing inspired by Euan Uglow that is about someone going through a hard time"
+      title: "CD Redesigns",
+      description: "?????"
     },
     {
       id: 9,
       image: p9,
-      title: "Resilience",
-      description: "Charcoal drawing using a figure by Daniel Maidman of someone fighting in a tough situation"
-    },
-    {
-      id: 10,
-      image: p10,
-      title: "Hand Recreation",
-      description: "Charcoal drawing that recreates a hand from Daniel Maidman’s Manou Drawing series"
-    },
-    {
-      id: 11,
-      image: p11,
-      title: "Five Figures",
-      description: "Oil painting that recreates Jean Arp’s, Composition of Five Nudes"
+      title: "Connecting Addictions",
+      description: "I LOVE ADDICTION"
     }
   ];
 
