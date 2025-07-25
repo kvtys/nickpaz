@@ -18,14 +18,14 @@ import p11 from '../assets/portfolio/p11.jpg';
 const ArtFrame = ({ image, title, description, index }) => {
   const [dimensions, setDimensions] = useState({ width: 400, height: 500 });
   const [isMobile, setIsMobile] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
+  const [isDescriptionVisible, setIsDescriptionVisible] = useState(false);
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"]
   });
   
-  // Responsive animation values
+  // Responsive animation values - simplified for mobile
   const x = useTransform(
     scrollYProgress, 
     [0, 0.5, 1], 
@@ -43,17 +43,18 @@ const ArtFrame = ({ image, title, description, index }) => {
   const rotateY = useTransform(
     scrollYProgress,
     [0, 0.5, 1],
-    isMobile
-      ? [0, 0, 0]  // No rotation on mobile
-      : [index % 2 === 0 ? 45 : -45, 0, index % 2 === 0 ? -15 : 15]
+    [0, 0, 0]  // Removed rotation entirely as it can cause issues on mobile
   );
 
   const scale = useTransform(
     scrollYProgress,
     [0, 0.2, 0.8, 1],
-    [0.8, 1, 1, 0.8]
+    isMobile 
+      ? [0.9, 1, 1, 0.9]  // Less extreme scale for mobile
+      : [0.8, 1, 1, 0.8]
   );
 
+  // Extracted ProgressBar to avoid re-creation
   const ProgressBar = () => {
     const { scrollYProgress } = useScroll();
     
@@ -65,7 +66,7 @@ const ArtFrame = ({ image, title, description, index }) => {
     );
   };
 
-  // Check for mobile viewport
+  // Check for mobile viewport with a more reliable breakpoint
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768);
@@ -81,51 +82,46 @@ const ArtFrame = ({ image, title, description, index }) => {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
+  // Set fixed dimensions based on viewport size, regardless of image resolution
   useEffect(() => {
-    if (!image) return;
+    // Get viewport dimensions
+    const viewportWidth = window.innerWidth;
+    const viewportHeight = window.innerHeight;
     
-    const img = new Image();
-    img.onload = () => {
-      // Set max dimensions while maintaining aspect ratio
-      const maxWidth = isMobile ? 320 : 600;
-      const maxHeight = isMobile ? 400 : 800;
-      
-      let width = img.width;
-      let height = img.height;
-      
-      // Scale down if necessary while preserving aspect ratio
-      if (width > maxWidth) {
-        height = (height * maxWidth) / width;
-        width = maxWidth;
-      }
-      
-      if (height > maxHeight) {
-        width = (width * maxHeight) / height;
-        height = maxHeight;
-      }
-      
-      // Ensure minimum dimensions
-      width = Math.max(width, isMobile ? 280 : 400);
-      height = Math.max(height, isMobile ? 350 : 500);
-      
-      setDimensions({ width, height });
-    };
+    // Set dimensions based on screen size - prioritizing large display
+    let width, height;
     
-    img.src = image;
-  }, [image, isMobile]);
+    if (viewportWidth < 640) {
+      // Small mobile devices
+      width = viewportWidth * 0.85; // 85% of viewport width
+      height = viewportHeight * 0.6; // 60% of viewport height
+    } else if (viewportWidth < 768) {
+      // Larger mobile devices
+      width = viewportWidth * 0.8;
+      height = viewportHeight * 0.65;
+    } else if (viewportWidth < 1280) {
+      // Tablets and smaller desktops
+      width = Math.min(viewportWidth * 0.7, 800);
+      height = Math.min(viewportHeight * 0.75, 900);
+    } else {
+      // Large desktops - significantly larger display
+      width = Math.min(viewportWidth * 0.6, 1100);
+      height = Math.min(viewportHeight * 0.8, 1000);
+    }
+    
+    // Apply the dimensions directly without checking image size
+    setDimensions({ width, height });
+  }, [isMobile]);
 
   return (
-    <div>
-      <ProgressBar />
+    <div className="w-full flex justify-center">
       <motion.div
         ref={ref}
         style={{ x, opacity, rotateY, scale }}
-        className="my-32 md:my-16 first:mt-16 md:first:mt-32 last:mb-16 md:last:mb-32 relative"
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
+        className="my-20 sm:my-28 md:my-36 first:mt-8 sm:first:mt-16 last:mb-16 relative"
       >
         <div
-          className="art-frame relative bg-gray-900 p-1 mx-auto"
+          className="art-frame relative bg-gray-900 p-1 mx-auto shadow-2xl"
           style={{
             width: `${dimensions.width}px`,
             height: `${dimensions.height}px`,
@@ -136,23 +132,23 @@ const ArtFrame = ({ image, title, description, index }) => {
             <img
               src={image}
               alt={title}
-              className="w-full h-full object-contain"
+              className="w-full h-full object-cover"
             />
           </div>
         
-          {/* Museum-style label */}
-          <div className="absolute -bottom-20 left-0 w-full">
+          {/* Museum-style label - improved positioning for mobile */}
+          <div className="absolute -bottom-16 left-0 w-full px-2 text-center">
             <h3 className="text-lg font-medium">{title}</h3>
             <p className="text-xs italic opacity-70">NICK PAZ</p>
           </div>
         
-          {/* Description overlay - Use native touch events for mobile */}
+          {/* Description overlay - now toggles on tap/click for all devices */}
           <motion.div
-            className="absolute inset-0 bg-black bg-opacity-80 p-6 flex items-center justify-center text-center"
+            className="absolute inset-0 bg-black bg-opacity-80 p-4 sm:p-6 flex items-center justify-center text-center cursor-pointer"
             initial={{ opacity: 0 }}
-            animate={{ opacity: isHovered ? 1 : 0 }}
+            animate={{ opacity: isDescriptionVisible ? 1 : 0 }}
             transition={{ duration: 0.3 }}
-            onClick={() => setIsHovered(!isHovered)} // Toggle on touch for mobile
+            onClick={() => setIsDescriptionVisible(!isDescriptionVisible)}
           >
             <p className="text-sm leading-relaxed">{description}</p>
           </motion.div>
@@ -163,6 +159,24 @@ const ArtFrame = ({ image, title, description, index }) => {
 };
 
 const PortfolioPage = () => {
+  const [isMounted, setIsMounted] = useState(false);
+  
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+  
+  // Progress bar at component level to avoid re-rendering
+  const ProgressBar = () => {
+    const { scrollYProgress } = useScroll();
+    
+    return (
+      <motion.div 
+        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 origin-left z-50"
+        style={{ scaleX: scrollYProgress }}
+      />
+    );
+  };
+
   // Sample art data
   const artworks = [
     {
@@ -233,11 +247,15 @@ const PortfolioPage = () => {
     }
   ];
 
+  // Don't render until client-side to avoid hydration issues
+  if (!isMounted) return null;
+
   return (
-    <div className="min-h-screen bg-black pt-24 pb-32">
+    <div className="min-h-screen bg-black pt-16 sm:pt-24 pb-24 sm:pb-32">
+      <ProgressBar />
       <div className="max-w-7xl mx-auto px-4">
         <motion.h1 
-          className="text-4xl md:text-6xl mb-8 md:mb-16 text-center font-light tracking-widest"
+          className="text-3xl sm:text-4xl md:text-6xl mb-6 sm:mb-8 md:mb-16 text-center font-light tracking-widest"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
