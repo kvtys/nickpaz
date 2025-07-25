@@ -104,10 +104,10 @@ const ContactPage = () => {
                 <div className="mb-6 flex flex-row space-x-2">
                   <p className="text-gray-300 mb-1">Email:</p>
                   <a 
-                    href="mailto:nm22paz@gmail.com" 
+                    href="mailto:contact@nickpaz.com" 
                     className="text-white hover:text-gray-400 transition-colors"
                   >
-                    nm22paz@gmail.com
+                    contact@nickpaz.com
                   </a>
                 </div>
                 <div>
