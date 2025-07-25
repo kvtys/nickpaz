@@ -11,7 +11,8 @@ import p6 from '../assets/portfolio/p6.jpg';
 import p7 from '../assets/portfolio/p7.jpg';
 import p8 from '../assets/portfolio/p8.jpg';
 import p9 from '../assets/portfolio/p9.jpg';
-
+import p10 from '../assets/portfolio/p10.jpg';
+import p11 from '../assets/portfolio/p11.jpg';
 
 // Art piece component
 const ArtFrame = ({ image, title, description, index }) => {
