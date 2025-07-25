@@ -82,37 +82,6 @@ const ArtFrame = ({ image, title, description, index }) => {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  // Set fixed dimensions based on viewport size, regardless of image resolution
-  useEffect(() => {
-    // Get viewport dimensions
-    const viewportWidth = window.innerWidth;
-    const viewportHeight = window.innerHeight;
-    
-    // Set dimensions based on screen size - prioritizing large display
-    let width, height;
-    
-    if (viewportWidth < 640) {
-      // Small mobile devices
-      width = viewportWidth * 0.85; // 85% of viewport width
-      height = viewportHeight * 0.6; // 60% of viewport height
-    } else if (viewportWidth < 768) {
-      // Larger mobile devices
-      width = viewportWidth * 0.8;
-      height = viewportHeight * 0.65;
-    } else if (viewportWidth < 1280) {
-      // Tablets and smaller desktops
-      width = Math.min(viewportWidth * 0.7, 800);
-      height = Math.min(viewportHeight * 0.75, 900);
-    } else {
-      // Large desktops - significantly larger display
-      width = Math.min(viewportWidth * 0.6, 1100);
-      height = Math.min(viewportHeight * 0.8, 1000);
-    }
-    
-    // Apply the dimensions directly without checking image size
-    setDimensions({ width, height });
-  }, [isMobile]);
-
   return (
     <div className="w-full flex justify-center">
       <motion.div
@@ -120,19 +89,12 @@ const ArtFrame = ({ image, title, description, index }) => {
         style={{ x, opacity, rotateY, scale }}
         className="my-20 sm:my-28 md:my-36 first:mt-8 sm:first:mt-16 last:mb-16 relative"
       >
-        <div
-          className="art-frame relative bg-gray-900 p-1 mx-auto shadow-2xl"
-          style={{
-            width: `${dimensions.width}px`,
-            height: `${dimensions.height}px`,
-            boxShadow: '0 10px 30px rgba(0,0,0,0.5), 0 0 10px rgba(255,255,255,0.1) inset'
-          }}
-        >
+        <div className="art-frame relative bg-gray-900 p-1 mx-auto shadow-2xl h-[65%] w-[100%]">
           <div className="w-full h-full p-4 bg-black">
             <img
               src={image}
               alt={title}
-              className="w-full h-full object-cover"
+              className="w-full h-full"
             />
           </div>
         
