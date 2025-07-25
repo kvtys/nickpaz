@@ -236,13 +236,13 @@ const PortfolioPage = () => {
       id: 10,
       image: p10,
       title: "Hand Recreation",
-      description: "Charcoal drawing that recreates a hand from Daniel Maidman’s Manou Drawing series"
+      description: "Charcoal drawing that recreates a hand from Daniel Maidman's Manou Drawing series"
     },
     {
       id: 11,
       image: p11,
       title: "Five Figures",
-      description: "Oil painting that recreates Jean Arp’s, Composition of Five Nudes"
+      description: "Oil painting that recreates Jean Arp's, Composition of Five Nudes"
     }
   ];
 
