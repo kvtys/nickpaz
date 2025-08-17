@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { motion, useScroll, useInView, AnimatePresence } from 'framer-motion';
-
+import { NEW_ART_FORMS_PAGE } from '../Constants';
 import a1 from '../assets/newartforms/a1.jpg'
 import a2 from '../assets/newartforms/a2.jpg'
 import b1 from '../assets/newartforms/b1.jpg'
@@ -29,7 +29,7 @@ const NewArtFormsPage = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
-          NEW ART FORMS
+          {NEW_ART_FORMS_PAGE.TITLE}
         </motion.h1>  
     </div>
       
@@ -174,36 +174,36 @@ const ProgressBar = () => {
 
 const sectionData = [
   {
-    title: "Site Specific Project",
-    description: `For the site specific topic I wanted to tackle issues of cell phone usage and how pollution is tied to cell phones and how it impacts sea life. The manufacturing process of a smartphone accounts for up to 85% of its carbon footprint, which makes it one of the most harmful aspects to nature and especially sea life. Deep sea mining for materials like cobalt platinum and molybdenum, destroy sealife biomes, and copper mines contaminate the surrounding waters with a reddish orange color that affects the wildlife around the area. I decided to make two collages of different kinds of cell phones into the shape of two sea creatures, that show the effects of obtaining the minerals for your cell phone. I decided to use printed pictures of cellphones and put that on a large sheet of paper. The location on campus that I think would be the best is this wall in between two buildings. There is a lot of foot traffic in this area and it fits nicely on the wall.`,
+    title: NEW_ART_FORMS_PAGE.SECTIONS[0].title,
+    description: NEW_ART_FORMS_PAGE.SECTIONS[0].description,
     images: [
         a1, a2
     ]
   },
   {
-    title: "Social Practice Project",
-    description: `Following the site specific project I wanted to stay on the topic of smartphone use. For the social practice project i decided to tackle disturbing topics with the same correlation to smartphone use, addiction. Many people don't think about their addiction to technology the same ways people look at drugs, so I wanted to portray that in another collage. The image on the left are some earlier ideas and the image on the right is the finished work. The finished Work talks about three different ideas, overstimulation, (top) addiction, (left) and brokenness (right). Overstimulation is shown through the limited space that the brain has, and it is being taken up by apps. Addiction follows someone putting needles into their arm that are filled with popular apps like youtube, spotify, and facebook. Broken is a representation of how powerful apps are and how they break something that is meant to keep them contained (wine bottle). The collage is on a large piece of paper and the project is magazine cut outs that were glued onto it. The apps that I used in each one are printed pieces of paper.`,
+    title: NEW_ART_FORMS_PAGE.SECTIONS[1].title,
+    description: NEW_ART_FORMS_PAGE.SECTIONS[1].description,  
     images: [
       b1, b2
     ]
   },
   {
-    title: "Presentation Project",
-    description: `For the 60 second project I took a different approach to what art truly is. My hair is an important way that i reflect myself, so i wanted to put this on a sheet of paper and explore different ideas. The image on the top represents chaos in which my hair is going in a bunch of different directions. The image on the bottom is a representation of my hair exploring human concepts such as love as seen with my hair making small hearts in a symmetrical way on the paper. I decided to portray my hair not showing my face to emphasize how impactful and expressive hair can be. `,
+    title: NEW_ART_FORMS_PAGE.SECTIONS[2].title,
+    description: NEW_ART_FORMS_PAGE.SECTIONS[2].description,
     images: [
       c1, c2
     ]
   },
   {
-    title: "Environmental Project",
-    description: `For my environmental project I decided to explore collages more deeply. The imagine on the left is a Tumi, which is a ceremonial knife and a symbol for good luck. I made the collage out of pine needles from dead pine branches. The image on the right is the logo for Peru which is made out of sticks. I decided to explore these different ideas for the environmental project because of my heritage and spread more awareness towards Peruvian culture.`,
+    title: NEW_ART_FORMS_PAGE.SECTIONS[3].title,
+    description: NEW_ART_FORMS_PAGE.SECTIONS[3].description,
     images: [
       d1, d2
     ]
   },
   {
-    title: "Self Directed Project",
-    description: ` [NICK MAKE UR SUMMARY SHORTER DAWG] `,
+    title: NEW_ART_FORMS_PAGE.SECTIONS[4].title,
+    description: NEW_ART_FORMS_PAGE.SECTIONS[4].description,
     images: [
       e1, e2, e3, e4, e5, e6
     ]

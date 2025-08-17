@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import React from 'react';
+import { HOME_PAGE } from '../Constants';
 
 const EnhancedSpotlight = () => {
   const containerRef = useRef(null);
@@ -110,7 +111,7 @@ const EnhancedSpotlight = () => {
           transition={{ duration: 1.8, ease: "easeOut" }}
           className="text-8xl font-light tracking-widest text-white"
         >
-          NICK PAZ
+          {HOME_PAGE.TITLE}
         </motion.h1>
         
         {/* Subheading */}
@@ -122,7 +123,7 @@ const EnhancedSpotlight = () => {
         >
           <div className="h-px w-24 bg-white opacity-30 mb-8" />
           <p className="text-xl tracking-widest text-white opacity-80">
-            CONTEMPORARY ARTIST
+            {HOME_PAGE.SUBTITLE}
           </p>
         </motion.div>
       </div>
@@ -136,7 +137,7 @@ const EnhancedSpotlight = () => {
       >
         <div className="h-12 w-px bg-white opacity-20" />
         <p className="text-sm tracking-widest text-white opacity-60">
-          INTERACTIVE PORTFOLIO
+          {HOME_PAGE.BOTTOM_TEXT}
         </p>
       </motion.div>
     </div>

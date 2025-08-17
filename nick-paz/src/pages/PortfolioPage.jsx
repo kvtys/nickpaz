@@ -1,6 +1,7 @@
 // File: src/pages/PortfolioPage.jsx
 import { useEffect, useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { PORTFOLIO_PAGE } from '../Constants';
 import React from 'react';
 import p1 from '../assets/portfolio/p1.jpg';
 import p2 from '../assets/portfolio/p2.jpg';
@@ -144,68 +145,68 @@ const PortfolioPage = () => {
     {
       id: 1,
       image: p1,
-      title: "Addicted to Feeling",
-      description: "The complexity of love broken down into eight stages on vinyl records using acrylic paint"
+      title: PORTFOLIO_PAGE.ARTWORKS[0].title,
+      description: PORTFOLIO_PAGE.ARTWORKS[0].description
     },
     {
       id: 2,
       image: p2,
-      title: "Mixed Media Album Reworks",
-      description: "Acrylic paint on CD cases with a listening element"
+      title: PORTFOLIO_PAGE.ARTWORKS[1].title,
+      description: PORTFOLIO_PAGE.ARTWORKS[1].description
     },
     {
       id: 3,
       image: p3,
-      title: "Fragile Depths",
-      description: "Oil painting addressing the dangers of deep sea mining to mass produce technology"
+      title: PORTFOLIO_PAGE.ARTWORKS[2].title,
+      description: PORTFOLIO_PAGE.ARTWORKS[2].description
     },
     {
       id: 4,
       image: p4,
-      title: "Crushed by Industry",
-      description: "A collage tackling societal priorities of consumerism over wild life"
+      title: PORTFOLIO_PAGE.ARTWORKS[3].title,
+      description: PORTFOLIO_PAGE.ARTWORKS[3].description
     },
     {
       id: 5,
       image: p5,
-      title: "Side Effects May Vary",
-      description: "Comparing similarities of social media and drugs through collage"
+      title: PORTFOLIO_PAGE.ARTWORKS[4].title,
+      description: PORTFOLIO_PAGE.ARTWORKS[4].description
     },
     {
       id: 6,
       image: p6,
-      title: "Drowning in Noise",
-      description: "Pastel drawing portrait of overstimulation"
+      title: PORTFOLIO_PAGE.ARTWORKS[5].title,  
+      description: PORTFOLIO_PAGE.ARTWORKS[5].description
     },
     {
       id: 7,
       image: p7,
-      title: "Having Fun! i guess.",
-      description: "Oil painting portrait about trying to fit in"
+      title: PORTFOLIO_PAGE.ARTWORKS[6].title,
+      description: PORTFOLIO_PAGE.ARTWORKS[6].description
     },
     {
       id: 8,
       image: p8,
-      title: "what am i doing wrong.",
-      description: "Charcoal drawing inspired by Euan Uglow that is about someone going through a hard time"
+      title: PORTFOLIO_PAGE.ARTWORKS[7].title,
+      description: PORTFOLIO_PAGE.ARTWORKS[7].description
     },
     {
       id: 9,
       image: p9,
-      title: "Resilience",
-      description: "Charcoal drawing using a figure by Daniel Maidman of someone fighting in a tough situation"
+      title: PORTFOLIO_PAGE.ARTWORKS[8].title,
+      description: PORTFOLIO_PAGE.ARTWORKS[8].description
     },
     {
       id: 10,
       image: p10,
-      title: "Hand Recreation",
-      description: "Charcoal drawing that recreates a hand from Daniel Maidman's Manou Drawing series"
+      title: PORTFOLIO_PAGE.ARTWORKS[9].title,  
+      description: PORTFOLIO_PAGE.ARTWORKS[9].description
     },
     {
       id: 11,
       image: p11,
-      title: "Five Figures",
-      description: "Oil painting that recreates Jean Arp's, Composition of Five Nudes"
+      title: PORTFOLIO_PAGE.ARTWORKS[10].title,
+      description: PORTFOLIO_PAGE.ARTWORKS[10].description
     }
   ];
 
@@ -222,7 +223,7 @@ const PortfolioPage = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
-          PORTFOLIO
+          {PORTFOLIO_PAGE.TITLE}
         </motion.h1>
         
         <div className="flex flex-col items-center">

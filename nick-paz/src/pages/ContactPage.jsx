@@ -1,8 +1,9 @@
 // File: src/pages/ContactPage.jsx
 import { motion } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
-import React from 'react';
 import nick from '../assets/nickpaz.jpg';
+import { CONTACT_PAGE } from '../Constants';
+import React from 'react';
 
 const ContactPage = () => {
   const containerRef = useRef(null);
@@ -84,16 +85,16 @@ const ContactPage = () => {
               transition={{ duration: 1, delay: 0.5 }}
             >
               <div className="border border-gray-800 p-8 mb-12">
-                <h2 className="text-2xl font-light mb-3 tracking-wide">NICK PAZ</h2>
-                <p className="text-base text-gray-400 italic mb-6">Contemporary Artist</p>
+                <h2 className="text-2xl font-light mb-3 tracking-wide">{CONTACT_PAGE.TITLE}</h2>
+                <p className="text-base text-gray-400 italic mb-6">{CONTACT_PAGE.SUBTITLE}</p>
                 <p className="mb-6 text-base leading-relaxed">
-                  Born in 2002, Nick Paz is a multidisciplinary artist whose work explores graphic and visual art, typically working in paint, collage, and charcoal. The variety of mediums assists in the wide scale of human experience.
+                  {CONTACT_PAGE.DESCRIPTION.ONE}
                 </p>
                 <p className="mb-6 text-base leading-relaxed">
-                  Paz's distinctive style explores areas of emotional struggles, addiction, and environmental concerns. His work invites viewers to reflect on the complex relationship between humanity and our surroundings, challenging conventional perspectives through bold imagery and thoughtful composition.
+                  {CONTACT_PAGE.DESCRIPTION.TWO}
                 </p>
                 <p className="text-base leading-relaxed">
-                  Currently based in Suffern NY, Paz continues to push the boundaries of art through experimental techniques and projects. His recent work has been featured in several emerging artist showcases, drawing attention for its innovative approach to contemporary themes.
+                  {CONTACT_PAGE.DESCRIPTION.THREE}
                 </p>
               </div>
               
@@ -107,7 +108,7 @@ const ContactPage = () => {
                     href="mailto:nm22paz@gmail.com" 
                     className="text-white hover:text-gray-400 transition-colors"
                   >
-                    nm22paz@gmail.com
+                    {CONTACT_PAGE.EMAIL}
                   </a>
                 </div>
                 <div>

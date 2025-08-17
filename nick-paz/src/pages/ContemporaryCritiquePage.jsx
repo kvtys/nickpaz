@@ -21,6 +21,7 @@ import p16 from '../assets/contemporarycritique/p16.jpg'
 import p17 from '../assets/contemporarycritique/p17.jpg'
 import p18 from '../assets/contemporarycritique/p18.jpg'
 import p19 from '../assets/contemporarycritique/p19.jpg'
+import { CONTEMPORARY_CRITIQUE_PAGE } from '../Constants';
 
 // Image Modal Component
 const ImageModal = ({ imageUrl, isOpen, onClose }) => {
@@ -558,121 +559,108 @@ const ContemporaryCritiquePage = () => {
   const timelineData = [
     {
       phase: 1,
-      date: "10/4",
-      title: "[Unnamed]",
-      description: "The first draft of Kanye West's  808's and Heartbreak, and Pink Floyd's Dark Side of the Moon. Both of these drafts are too similar to the original, but I want to see how i can utilize colors and shapes to make something unique.",
+      date: CONTEMPORARY_CRITIQUE_PAGE.TIMELINE_DATA[0].date,
+      title: CONTEMPORARY_CRITIQUE_PAGE.TIMELINE_DATA[0].title,
+      description: CONTEMPORARY_CRITIQUE_PAGE.TIMELINE_DATA[0].description,
       image: p1,
       image2: p2,
       color: "#2A3A5A"
     },
     {
       phase: 2,
-      date: "10/9",
-      title: "[Unnamed]",
-      description: `I thought about what kind of portrayal of these albums that I wanted to get to.
-                    I decided to go for a more archaic approach for 808's.
-                    I decided to utilize different colors and show a different perspective of what the light side of the moon could look like.
-                    making these shapes were a bit challenging as I was not too sure on where they should go.`,
+      date: CONTEMPORARY_CRITIQUE_PAGE.TIMELINE_DATA[1].date,
+      title: CONTEMPORARY_CRITIQUE_PAGE.TIMELINE_DATA[1].title,
+      description: CONTEMPORARY_CRITIQUE_PAGE.TIMELINE_DATA[1].description,
       image: p3,
       image2: p4,
       color: "#3F598A"
     },
     {
       phase: 3,
-      date: "10/16",
-      title: "[Unnamed]",
-      description: `Both of my drafts were finalized and painted on the front of the cd cases. my work is 75% complete. both of these portrayals are coming together nicely. and will be put on the cd case very soon.
-                    The painting on the left went pretty smoothly, while the one on the right has stressed me out a lot trying to get these lines straight and the overlapping has been troubling putting on extra layers of paint.`,
+      date: CONTEMPORARY_CRITIQUE_PAGE.TIMELINE_DATA[2].date,
+      title: CONTEMPORARY_CRITIQUE_PAGE.TIMELINE_DATA[2].title,
+      description: CONTEMPORARY_CRITIQUE_PAGE.TIMELINE_DATA[2].description,
       image: p5,
       image2: p6,
       color: "#5474A6"
     },
     {
       phase: 4,
-      date: "10/20",
-      title: "[Unnamed]",
-      description: `These last two photos are the final product of my redesign for album covers. Both of these redesigns are painted on a cd case.
-                    On the left is a redesign of Kanye West's 808's and Heartbreak, and on the right is a redesign of Pink Floyd's Dark side of the Moon.
-                    It was fun to do something like this an seeing both of these come together is very satisfying. `,
+      date: CONTEMPORARY_CRITIQUE_PAGE.TIMELINE_DATA[3].date,
+      title: CONTEMPORARY_CRITIQUE_PAGE.TIMELINE_DATA[3].title,
+      description: CONTEMPORARY_CRITIQUE_PAGE.TIMELINE_DATA[3].description,
       image: p7,
       image2: p8,
       color: "#7A98C2"
     },
     {
       phase: 5,
-      date: "10/30",
-      title: "[Unnamed]",
-      description: `This is the first set of designs that I had sketched out with colored pencils. 
-                    The first one would be displayed on a yellow background and this redesign is of Marvin Gaye's album "What's Going On". It depicts four sections in a peace sign that depict life.
-                    The second sketch that I worked on is a redesign of the album "Plastic Beach" by Gorillaz. This would be a top down view of a polluted beach.`,
+      date: CONTEMPORARY_CRITIQUE_PAGE.TIMELINE_DATA[4].date,
+      title: CONTEMPORARY_CRITIQUE_PAGE.TIMELINE_DATA[4].title,
+      description: CONTEMPORARY_CRITIQUE_PAGE.TIMELINE_DATA[4].description,
       image: p9,
       image2: p9,
       color: "#A1B9DE"
     },
     {
       phase: 6,
-      date: "11/1",
-      title: "[Unnamed]",
-      description: `I decided to start painting with these two designs. 
-                    I edited the beach to have more layers of water to show different depths, and I want to keep a simplistic design to not overcomplicate this as well. I added boats leaving this beach to show how people are avoiding such a prevalent issue with the world.
-                    I started working on the other painting a little but I started getting challenged with how I want to truly represent my work on this yellow background.`,
+      date: CONTEMPORARY_CRITIQUE_PAGE.TIMELINE_DATA[5].date,
+      title: CONTEMPORARY_CRITIQUE_PAGE.TIMELINE_DATA[5].title,
+      description: CONTEMPORARY_CRITIQUE_PAGE.TIMELINE_DATA[5].description,
       image: p10,
       image2: p11,
       color: "#A1B9DE"
     },
     {
       phase: 7,
-      date: "11/7",
-      title: "[Unnamed]",
-      description: `This past 2 days I have been struggling trying to figure out what i want to depict exactly for the third redesign. I put two other background ideas to see if I would get any inspiration and completely redid the "Plastic Beach" redesign trying to keep it a more simple for the background.
-                    The image on the left if my take on the album "Ghost Stories" by Coldplay. these 6 different ghosts all represent different emotions that come from a different backgrounds. This is my only album redesign that I decided to keep a very similar color to the original album. I think the blue contrasts with the mystery of the Ghosts where it is subtly white aswell.`,
+      date: CONTEMPORARY_CRITIQUE_PAGE.TIMELINE_DATA[6].date,
+      title: CONTEMPORARY_CRITIQUE_PAGE.TIMELINE_DATA[6].title,
+      description: CONTEMPORARY_CRITIQUE_PAGE.TIMELINE_DATA[6].description,
       image: p12,
       image2: p13,
       color: "#A1B9DE"
     },
     {
       phase: 8,
-      date: "11/11",
-      title: "Unnamed",
-      description: `On the left is a finished version of my redesign for Marvin Gaye's album "What's going on". This scene was annoying to portray because i wasn't sure about how much I liked it as I went. but it turned out pretty well as i think the colors were utilized well. 
-                    The right Album that I redesigned is a take on "Plastic Beach" by the Gorillaz. Here there are themes of pollution and neglect that show how our world is dealing with pollution.`,
+      date: CONTEMPORARY_CRITIQUE_PAGE.TIMELINE_DATA[7].date,
+      title: CONTEMPORARY_CRITIQUE_PAGE.TIMELINE_DATA[7].title,
+      description: CONTEMPORARY_CRITIQUE_PAGE.TIMELINE_DATA[7].description,
       image: p14,
       image2: p15,
       color: "#A1B9DE"
     },
     {
       phase: 9,
-      date: "11/12",
-      title: "[Unnamed]",
-      description: `I made a last minute change to this redesign. I wanted the pollution to be more prevalent as it was the theme I was trying to emphasize and I like how this looks a lot better.`,
+      date: CONTEMPORARY_CRITIQUE_PAGE.TIMELINE_DATA[8].date,
+      title: CONTEMPORARY_CRITIQUE_PAGE.TIMELINE_DATA[8].title,
+      description: CONTEMPORARY_CRITIQUE_PAGE.TIMELINE_DATA[8].description,
       image: p16,
       image2: p16,
       color: "#A1B9DE"
     },
     {
       phase: 10,
-      date: "11/13, 11/17-11/26",
-      title: "[Unnamed]",
-      description: `This was the result of my second critique and I am very happy with how it turned out. There are still some last minute touch ups on some of the CD's that I need to accomplish before the final exhibition. I put up two different ideas for displaying the original design, but I am leaning towards keeping the original design smaller to highlight my redesign more.
-                    During the second stretch of time I made some small adjustments to make the redesigns look the slightest bit better and did the most work to my redesign on the bottom left of my redesigns. `,
+      date: CONTEMPORARY_CRITIQUE_PAGE.TIMELINE_DATA[9].date,
+      title: CONTEMPORARY_CRITIQUE_PAGE.TIMELINE_DATA[9].title,
+      description: CONTEMPORARY_CRITIQUE_PAGE.TIMELINE_DATA[9].description,
       image: p17,
       image2: p17,
       color: "#A1B9DE"
     },
     {
       phase: 11,
-      date: "11/30-12/5",
-      title: "[Unnamed]",
-      description: `This was probably the most time consuming part of my entire project. The last stretch working on very final touch ups' until my installation process. I learned how to properly mount and put up the original albums, and how to mount my CDs. I have also decided to put the CDs in their cases next to the player for people to be able to see the vision that I see. I decided to order my work based how they looked color wise and I am still deciding how I would like to properly label my work.`,
+      date: CONTEMPORARY_CRITIQUE_PAGE.TIMELINE_DATA[10].date,
+      title: CONTEMPORARY_CRITIQUE_PAGE.TIMELINE_DATA[10].title,
+      description: CONTEMPORARY_CRITIQUE_PAGE.TIMELINE_DATA[10].description,
       image: p18,
       image2: p18,
       color: "#A1B9DE"
     },
     {
       phase: 12,
-      date: "12/6",
-      title: "[Unnamed]",
-      description: `This is the finished project of my work for contemporary critique. I decided to only include one tag that does not tell the viewer what the exact album is or what I am trying to portray as I feel like they should find that out for themselves and explore the music. `,
+      date: CONTEMPORARY_CRITIQUE_PAGE.TIMELINE_DATA[11].date,
+      title: CONTEMPORARY_CRITIQUE_PAGE.TIMELINE_DATA[11].title,
+      description: CONTEMPORARY_CRITIQUE_PAGE.TIMELINE_DATA[11].description,
       image: p19,
       image2: p19,
       color: "#A1B9DE"
