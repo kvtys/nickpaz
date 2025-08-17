@@ -1,5 +1,5 @@
 export const CONTACT_PAGE = {
-  TITLE: 'NICK PAZZZ',
+  TITLE: 'NICK PAZ',
   SUBTITLE: 'Contemporary Artist',
   DESCRIPTION: {
     ONE: 'Born in 2002, Nick Paz is a multidisciplinary artist whose work explores graphic and visual art, typically working in paint, collage, and charcoal. The variety of mediums assists in the wide scale of human experience.',
