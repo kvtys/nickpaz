@@ -130,7 +130,7 @@ export const NEW_ART_FORMS_PAGE = {
     },
     {
       title: "Self Directed Project",
-      description: "[NICK MAKE UR SUMMARY SHORTER DAWG]"
+      description: ""
     }
   ]
 }
