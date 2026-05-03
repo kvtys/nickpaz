@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import React from 'react';
 import { HOME_PAGE } from '../Constants';
 
@@ -126,6 +127,30 @@ const EnhancedSpotlight = () => {
             {HOME_PAGE.SUBTITLE}
           </p>
         </motion.div>
+
+        {/* Navigation links */}
+        <motion.nav
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 2.2, duration: 1.2 }}
+          className="flex flex-wrap justify-center gap-x-8 gap-y-4"
+        >
+          {[
+            { label: 'PORTFOLIO', to: '/portfolio' },
+            { label: 'CONTEMPORARY CRITIQUE', to: '/contemporarycritique' },
+            { label: 'NEW ART FORMS', to: '/newartforms' },
+            { label: 'CAPSTONE BLOG', to: '/timeline' },
+            { label: 'CONTACT', to: '/contact' },
+          ].map(({ label, to }) => (
+            <Link
+              key={to}
+              to={to}
+              className="text-xs tracking-widest text-white opacity-50 hover:opacity-100 transition-opacity duration-300 border-b border-white border-opacity-0 hover:border-opacity-40 pb-0.5"
+            >
+              {label}
+            </Link>
+          ))}
+        </motion.nav>
       </div>
       
       {/* Bottom text */}

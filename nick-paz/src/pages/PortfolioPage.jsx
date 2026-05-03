@@ -90,12 +90,12 @@ const ArtFrame = ({ image, title, description, index }) => {
         style={{ x, opacity, rotateY, scale }}
         className="my-20 sm:my-28 md:my-36 first:mt-8 sm:first:mt-16 last:mb-16 relative"
       >
-        <div className="art-frame relative bg-gray-900 p-1 mx-auto shadow-2xl h-[65%] w-[100%]">
-          <div className="w-full h-full p-4 bg-black">
+        <div className="art-frame relative bg-gray-900 p-1 mx-auto shadow-2xl ">
+          <div className="flex flex-col items-center justify-center w-full h-full p-4 bg-black">
             <img
               src={image}
               alt={title}
-              className="w-full h-full"
+              className= "max-w-full max-h-full object-contain"
             />
           </div>
         
